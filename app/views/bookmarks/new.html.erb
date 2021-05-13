@@ -1,8 +1,14 @@
 <div class="container">
-  <%= simple_form_for [@list, @bookmark] do |f| %>
-    <%= f.input :comment %>
-    <%= f.association :movie %>
-    <%= f.submit "Add movie" %>
-  <% end %>
+  <div class="container my-5">
+    <div class="row justify-content-md-center">
+      <div class="col-6 bg-white p-3">
+        <h1 class= "mb-3">Add to <%= @list.name %></h1>
+        <%= simple_form_for [@list, @bookmark] do |f| %>
+          <%= f.input :comment %>
+          <%= f.association :movie %>
+          <%= f.button :submit, "Add movie", class: "btn-success" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
-

@@ -1,9 +1,14 @@
-<div class="container">
-  <%= simple_form_for @list do |f| %>
-    <%= f.input :name %>
-    <%= f.input :image_url %>
-    <%= f.submit "Create a list" %>
-  <% end %>
+<div class="container my-5">
+  <div class="row justify-content-md-center">
+    <div class="col-6 bg-white p-3">
+      <h1 class= "mb-3">Create new list</h1>
+       <%= simple_form_for @list do |f| %>
+        <%= f.input :name %>
+        <%= f.input :image_url %>
+        <%= f.button :submit, "Create a list", class: "btn-success" %>
+      <% end %>
+    </div>
+  </div>
 </div>
 
 
