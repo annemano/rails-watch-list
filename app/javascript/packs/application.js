@@ -14,4 +14,9 @@ import 'aos/dist/aos.css';
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
-AOS.init();
+
+$(function() {
+          AOS.init();
+     });
+
+window.addEventListener('load', AOS.refresh)
