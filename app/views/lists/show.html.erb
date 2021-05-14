@@ -13,12 +13,12 @@
   <div class="container">
     <div class="container my-5">
       <div class="row justify-content-md-center">
-        <div class="col-6 bg-white p-3">
-          <h1 class= "mb-3">Add to <%= @list.name %></h1>
+        <div class="col-sm-8 col-md-6 bg-white p-3">
+          <h1 class= "mb-3 text-center">Add to <%= @list.name %></h1>
           <%= simple_form_for [@list, @bookmark] do |f| %>
             <%= f.input :comment %>
             <%= f.association :movie %>
-            <%= f.button :submit, "Add movie", class: "btn-success" %>
+            <%= f.button :submit, "Add to list", class: "btn-primary" %>
           <% end %>
         </div>
       </div>
@@ -29,8 +29,8 @@
 <div class="container my-5">
   <div class="row">
     <% @list.bookmarks.each do |bookmark| %>
-      <div class="col-6">
-        <div class="card">
+      <div class="col-sm-12 col-md-6 mb-3">
+        <div class="card card-movie">
           <img src="<%= bookmark.movie.poster_url %>" class="card-img-top" alt="<%= bookmark.movie.title %> movie poster">
           <div class="card-body">
             <div class="card-title d-flex justify-content-between">
@@ -39,12 +39,18 @@
             </div>
             <p class="card-overview"><%= bookmark.movie.overview %></p>
             <div class="card-comment d-flex justify-content-between pt-3">
-              <p><i class="fas fa-quote-left"></i> <em><%= bookmark.comment %></em></p>
-              <%= link_to "delete", bookmark_path(bookmark), method: :delete, data: { confirm: 'Are you sure?' }, class: "text-danger" %>
+              <p class="m-0"><i class="fas fa-quote-left"></i> <em><%= bookmark.comment %></em></p>
+              <%= link_to bookmark_path(bookmark), method: :delete, data: { confirm: 'Are you sure?' }, class: "text-danger" do %>
+                <i class="fas fa-trash-alt"></i>
+              <% end %>
             </div>
           </div>
         </div>
       </div>
     <% end %>
   </div>
+  <div class="my-5 text-center">
+    <%= link_to "Back to lists", root_path, { class: "btn btn-primary"} %>
+  </div>
+
 
