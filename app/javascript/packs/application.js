@@ -8,15 +8,19 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import 'bootstrap';
-import AOS from 'aos';
+import 'jquery-bar-rating/dist/themes/css-stars';
 import 'aos/dist/aos.css';
+import AOS from 'aos';
+import { initStarRating } from '../plugins/init_star_rating';
 
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
-$(function() {
-          AOS.init();
-     });
 
-window.addEventListener('load', AOS.refresh)
+document.addEventListener('turbolinks:load', () => {
+  AOS.init();
+  initStarRating();
+});
+
+
