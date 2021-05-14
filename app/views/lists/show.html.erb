@@ -57,9 +57,16 @@
     <div class="review-list pr-3 w-50">
       <h3 class="mb-3">Reviews</h3>
       <% @list.reviews.each do |review| %>
-        <% review.rating.times do %>
-          <i class="fas fa-star"></i>
-        <% end %>
+        <div class="stars d-flex align-items-center mb-1">
+          <div class="stars-fontawesome">
+            <% review.rating.times do %>
+              <i class="fas fa-star"></i>
+            <% end %>
+          </div>
+          <div class="timestamp pl-3">
+            <p class="m-0"><em>posted <%= ((Time.now - review.created_at) / 60).floor %> minutes ago</em></p>
+          </div>
+        </div>
         <p><%= review.content %></p>
         <hr>
       <% end %>
