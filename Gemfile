@@ -30,6 +30,9 @@ gem 'simple_form'
 # protect secret keys
 gem 'dotenv-rails', groups: [:development, :test]
 
+# image upload
+gem 'cloudinary', '~> 1.16.0'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

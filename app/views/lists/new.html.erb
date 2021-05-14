@@ -4,7 +4,7 @@
       <h1 class= "mb-3">Create new list</h1>
        <%= simple_form_for @list do |f| %>
         <%= f.input :name %>
-        <%= f.input :image_url %>
+        <%= f.input :photo, as: :file %>
         <%= f.button :submit, "Create a list", class: "btn-success" %>
       <% end %>
     </div>
