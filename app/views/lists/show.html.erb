@@ -52,5 +52,28 @@
   <div class="my-5 text-center">
     <%= link_to "Back to lists", root_path, { class: "btn btn-primary"} %>
   </div>
+  <hr>
+  <div class="reviews d-flex justify-content-between mt-5">
+    <div class="review-list pr-3 w-50">
+      <h3 class="mb-3">Reviews</h3>
+      <% @list.reviews.each do |review| %>
+        <p><%= review.content %></p>
+        <hr>
+      <% end %>
+    </div>
+    <div class="review-form w-50">
+      <div class="bg-white p-3">
+        <h4 class= "mb-3">Add your review</h4>
+          <%= simple_form_for [@list, @review] do |f| %>
+            <%= f.input :content %>
+            <%= f.button :submit, class: "btn-flat" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
 
 
