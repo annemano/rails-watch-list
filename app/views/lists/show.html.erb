@@ -57,6 +57,9 @@
     <div class="review-list pr-3 w-50">
       <h3 class="mb-3">Reviews</h3>
       <% @list.reviews.each do |review| %>
+        <% review.rating.times do %>
+          <i class="fas fa-star"></i>
+        <% end %>
         <p><%= review.content %></p>
         <hr>
       <% end %>
@@ -65,13 +68,13 @@
       <div class="bg-white p-3">
         <h4 class= "mb-3">Add your review</h4>
           <%= simple_form_for [@list, @review] do |f| %>
-            <%= f.input :content %>
+            <%= f.input :content, label: "Comment"%>
+            <%= f.input :rating, collection: 0..5 %>
             <%= f.button :submit, class: "btn-flat" %>
           <% end %>
         </div>
       </div>
     </div>
-
   </div>
 
 
